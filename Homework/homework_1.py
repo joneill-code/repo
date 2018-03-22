@@ -77,7 +77,7 @@ def kmer_dict(s, k):
         codon=s[i:i+int(k)]
         for mer in codon:
             count+=1
-            codons[mer] = count
+        codons[codon] = count
     return codons
 
 # Reading Files
@@ -142,11 +142,11 @@ def get_csv_column(file_name, column):
     :return: a list
     """
     with open(file_name, 'r') as csv:
+        lister = []
         for line in csv:
-            columns = line.rstrip('\n').split(',')
-            column = int(column) 
-            query= columns[column]
-    return query
+            if csv.lines().split(',')[0] == column:
+                lister.append(line)
+    return lister
 
 def fasta_seqs(file_name):
     """

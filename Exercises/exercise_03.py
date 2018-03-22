@@ -58,12 +58,12 @@ def fasta_folder_to_dict(folder_path):
                         sequence =x[1].replace('\n','')
                         if len(seq) == 0:
                             continue
-                if header in fasta_dictionary and seq == fasta_dict[header]:
+                if header in fasta_dictionary and seq == fasta_dictionary[header]:
                     print("Duplicate header and sequence for {}".format(header))
                           continue
-                elif header in fasta_dict:
+                elif header in fasta_dictionary:
                           print("duplicate header {}, but non matching sequence".format(header))
-                          del fasta_dict[header]
+                          del fasta_dictionary[header]
                           continue
                 fasta_dictionary[header]=sequence
                         #print(fasta_list)
